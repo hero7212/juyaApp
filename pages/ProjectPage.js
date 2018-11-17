@@ -72,7 +72,8 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
   },
   projectTit: {
-    fontSize: 20
+    fontSize: 20,
+    marginTop: 10
   },
   projectTitleBig: {
     fontSize: 30,
