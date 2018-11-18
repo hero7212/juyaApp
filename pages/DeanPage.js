@@ -47,7 +47,6 @@ const styles = StyleSheet.create({
   },
   deanPhoto: {
     height: '40%',
-    backgroundColor: '#ff0000'
   },
   deanPhotoImage: {
     width: '100%',

@@ -6,6 +6,7 @@ import {
   TouchableHighlight
 } from 'react-native';
 import commonStyle from '../styles/commonStyle'
+import {themeColor} from '../constants/theme'
 
 
 export default class IntroductionPage extends Component {
@@ -43,7 +44,7 @@ const styles = StyleSheet.create({
   section: {
     width: '80%',
     height: '15%',
-    backgroundColor: '#5dc890',
+    backgroundColor: themeColor,
     margin: 10,
     justifyContent: 'center',
     alignItems: 'center',

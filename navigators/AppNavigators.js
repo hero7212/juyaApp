@@ -8,6 +8,8 @@ import ProjectPage from '../pages/ProjectPage'
 import HospitalPage from '../pages/HospitalPage'
 import DeanPage from '../pages/DeanPage'
 import Ionicons from 'react-native-vector-icons/Ionicons'
+import navHeaderStyles from './navHeaderStyles'
+import {themeColor} from '../constants/theme'
 
 
 export const AppTabNavigator = TabNavigator({
@@ -17,12 +19,12 @@ export const AppTabNavigator = TabNavigator({
 			tabBarLabel:'介绍',
 			tabBarIcon:({tintColor,focused})=>(
 				<Ionicons
-					name={focused?'ios-home':'ios-home-outline'}
+					name={focused?'ios-home':'ios-home'}
 					size={26}
 					style={{color:tintColor}}
 				/>
-			)
-    }
+			),
+		},
   },
   FormPage:{
     screen:FormPage,
@@ -30,18 +32,22 @@ export const AppTabNavigator = TabNavigator({
 			tabBarLabel:'顾客',
 			tabBarIcon:({tintColor,focused})=>(
 				<Ionicons
-					name={focused?'ios-people':'ios-home-people'}
+					name={focused?'ios-people':'ios-people'}
 					size={26}
 					style={{color:tintColor}}
 				/>
-			)
-    }
+			),
+		}
   }
 },{
     tabBarComponent:TabBarBottom,
     tabBarPosition: 'bottom',
     tabBarOptions:{
-			activeTintColor:'#5dc890'
+			activeTintColor: '#ffffff',
+			inactiveTintColor: '#333333',
+			style: {
+				backgroundColor: themeColor
+			}
     }
 })
 
@@ -49,43 +55,65 @@ export const AppStackNavigator = StackNavigator({
 	TabNav:{
 		screen:AppTabNavigator,
 		navigationOptions:{
-			title:'聚雅'
+			title:'聚雅生物科技有限公司',
+			headerStyle: {
+				backgroundColor: themeColor
+			},
+			headerTitleStyle: {
+				color: '#ffffff'
+			}
 		}
 	},
 	IntroductionPage: {
 		screen: IntroductionPage,
 		navigationOptions:{
-			title:'简介'
+			title:'简介',
+			headerStyle: {
+				backgroundColor: themeColor
+			},
+			headerTitleStyle: {
+				color: '#ffffff'
+			}
 		}
 	}, 
 	FormPage: {
 		screen: FormPage,
 		navigationOptions:{
-			title:'顾客'
+			title:'顾客',
+			headerStyle: {
+				backgroundColor: themeColor
+			},
+			headerTitleStyle: {
+				color: '#ffffff'
+			}
 		}
 	},
 	CompanyPage: {
 		screen: CompanyPage,
 		navigationOptions:{
-			title:'公司简介'
+			title:'公司简介',
+			...navHeaderStyles
 		}
 	}, 
 	ProjectPage: {
 		screen: ProjectPage,
 		navigationOptions:{
-			title:'项目简介'
+			title:'项目简介',
+			...navHeaderStyles
 		}
 	},
 	HospitalPage: {
 		screen: HospitalPage,
 		navigationOptions:{
-			title:'医院简介'
+			title:'医院简介',
+			...navHeaderStyles
 		}
 	}, 
 	DeanPage: {
 		screen: DeanPage,
 		navigationOptions:{
-			title:'院长简介'
+			title:'院长简介',
+			...navHeaderStyles
 		}
 	},
 	
