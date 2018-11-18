@@ -40,15 +40,15 @@ export const AppTabNavigator = TabNavigator({
 		}
   }
 },{
-    tabBarComponent:TabBarBottom,
-    tabBarPosition: 'bottom',
-    tabBarOptions:{
-			activeTintColor: '#ffffff',
-			inactiveTintColor: '#333333',
-			style: {
-				backgroundColor: themeColor
-			}
-    }
+	tabBarComponent:TabBarBottom,
+	tabBarPosition: 'bottom',
+	tabBarOptions:{
+		activeTintColor: '#ffffff',
+		inactiveTintColor: '#333333',
+		style: {
+			backgroundColor: themeColor
+		}
+	}
 })
 
 export const AppStackNavigator = StackNavigator({
@@ -61,7 +61,7 @@ export const AppStackNavigator = StackNavigator({
 			},
 			headerTitleStyle: {
 				color: '#ffffff'
-			}
+			},
 		}
 	},
 	IntroductionPage: {

@@ -5,19 +5,30 @@ import {
   View,
   Image
 } from 'react-native';
+import Swiper from 'react-native-swiper'
 import commonStyle from '../styles/commonStyle'
+import {deanImgs} from '../constants/deanPageData'
+import { themeColor } from '../constants/theme';
 
 
-export default class CompanyPage extends Component {
+
+export default class DeanPage extends Component {
   render() {
+    const prevArrowComponent = <Text style={styles.buttonText}>‹</Text>
+    const nextArrowComponent = <Text style={styles.buttonText}>›</Text>
+    const activeDotComponent = <View style={{backgroundColor: themeColor, width: 8, height: 8, borderRadius: 4, marginLeft: 3, marginRight: 3, marginTop: 3, marginBottom: 3,}}></View>
+    
     return (
       <View style={styles.container}>
-        <View style={styles.pageWrapper}>
-          <View style={styles.deanPhoto}>
-            <Image style={styles.deanPhotoImage} 
-              source={require('../img/deanPhoto.png')}
-            />
-          </View>
+        <View style={styles.pageWrapper}>          
+          <Swiper 
+            style={styles.deanPhoto} prevButton={prevArrowComponent} nextButton={nextArrowComponent}
+            showsButtons={true} autoplay={true} height={280} showsPagination={true} activeDot={activeDotComponent}
+            >        
+            {
+              deanImgs.map((item,index) => <Image style={styles.deanPhotoImage} source={item} key={index}/>)
+            }
+          </Swiper>
           <View  style={styles.deanNameWrapper}>
             <Text style={styles.deanName}>孙伟</Text>
             <Text style={styles.deanJob}>教授</Text>              
@@ -31,7 +42,7 @@ export default class CompanyPage extends Component {
             意大利光大集团等离子光纤技术指导专家；
             中韩、中日、中澳微整技术交流学者、合作医师；
             华纳国际影视中心大陆唯一指定整形美容专家；
-            具有30年的临床经验，是齐鲁医美界旗帜式人物；
+            具有30年的临床经验，是齐鲁医美界旗帜式人物。
           </Text>
         </View>  
       </View>
@@ -51,6 +62,10 @@ const styles = StyleSheet.create({
   deanPhotoImage: {
     width: '100%',
     height: '100%',
+  },
+  buttonText: {
+    color: themeColor,
+    fontSize: 50
   },
   deanNameWrapper: {
     display: 'flex',
