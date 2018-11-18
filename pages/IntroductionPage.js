@@ -3,7 +3,9 @@ import {
   StyleSheet,
   Text,
   View,
-  TouchableHighlight
+  ImageBackground,
+  TouchableHighlight,
+  Dimensions
 } from 'react-native';
 import commonStyle from '../styles/commonStyle'
 import {themeColor} from '../constants/theme'
@@ -12,7 +14,10 @@ import {themeColor} from '../constants/theme'
 export default class IntroductionPage extends Component {
   render() {
     const {navigation} = this.props;
+    const {height,width} =  Dimensions.get('window')
     return (
+      <ImageBackground source={require('../img/bg.jpg')} style={{width, height}}>
+      
       <View style={styles.container}>
         <TouchableHighlight style={styles.section} onPress={()=>{
           navigation.navigate('CompanyPage')
@@ -35,12 +40,19 @@ export default class IntroductionPage extends Component {
           <Text style={styles.sectionTit}>院长简介</Text>
         </TouchableHighlight>
       </View>
+      </ImageBackground>
     );
   }
 }
 
 const styles = StyleSheet.create({
   ...commonStyle,
+  container: {
+    ...commonStyle.container,
+    paddingTop: 40,
+    justifyContent: 'flex-start',
+    backgroundColor: 'transparent'
+  },  
   section: {
     width: '80%',
     height: '15%',
