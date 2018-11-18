@@ -16,14 +16,13 @@ export default class DeanPage extends Component {
   render() {
     const prevArrowComponent = <Text style={styles.buttonText}>‹</Text>
     const nextArrowComponent = <Text style={styles.buttonText}>›</Text>
-    const activeDotComponent = <View style={{backgroundColor: themeColor, width: 8, height: 8, borderRadius: 4, marginLeft: 3, marginRight: 3, marginTop: 3, marginBottom: 3,}}></View>
     
     return (
       <View style={styles.container}>
         <View style={styles.pageWrapper}>          
           <Swiper 
             style={styles.deanPhoto} prevButton={prevArrowComponent} nextButton={nextArrowComponent}
-            showsButtons={true} autoplay={true} height={280} showsPagination={true} activeDot={activeDotComponent}
+            showsButtons={true} autoplay={true} height={280} showsPagination={true} activeDotColor={themeColor}
             >        
             {
               deanImgs.map((item,index) => <Image style={styles.deanPhotoImage} source={item} key={index}/>)
