@@ -3,10 +3,13 @@ import React from 'react'
 import {StackNavigator,TabNavigator,TabBarBottom} from 'react-navigation'
 import IntroductionPage from '../pages/IntroductionPage'
 import FormPage from '../pages/FormPage'
+import VipPage from '../pages/VipPage'
 import CompanyPage from '../pages/CompanyPage'
 import ProjectPage from '../pages/ProjectPage'
 import HospitalPage from '../pages/HospitalPage'
 import DeanPage from '../pages/DeanPage'
+import DataFilePage from '../pages/DataFilePage'
+import ReVisitPage from '../pages/ReVisitPage'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import navHeaderStyles from './navHeaderStyles'
 import {themeColor} from '../constants/theme'
@@ -25,11 +28,24 @@ export const AppTabNavigator = TabNavigator({
 				/>
 			),
 		},
-  },
-  FormPage:{
+	},
+	FormPage:{
     screen:FormPage,
     navigationOptions:{
 			tabBarLabel:'顾客',
+			tabBarIcon:({tintColor,focused})=>(
+				<Ionicons
+					name={focused?'ios-people':'ios-people'}
+					size={26}
+					style={{color:tintColor}}
+				/>
+			),
+		}
+  },
+  VipPage:{
+    screen:VipPage,
+    navigationOptions:{
+			tabBarLabel:'会员',
 			tabBarIcon:({tintColor,focused})=>(
 				<Ionicons
 					name={focused?'ios-people':'ios-people'}
@@ -116,7 +132,20 @@ export const AppStackNavigator = StackNavigator({
 			...navHeaderStyles
 		}
 	},
-	
+	DataFilePage: {
+		screen: DataFilePage,
+		navigationOptions:{
+			title:'资料档案',
+			...navHeaderStyles
+		}
+	}, 
+	ReVisitPage: {
+		screen: ReVisitPage,
+		navigationOptions:{
+			title:'回访记录',
+			...navHeaderStyles
+		}
+	}
 },{
     navigationOptions:{
         // header:null
